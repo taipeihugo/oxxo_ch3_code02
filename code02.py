@@ -23,6 +23,9 @@ def home():
 @app.route("/favicon.ico")
 def favicon():
     return send_file('favicon.ico')
+@app.route("/favicon.png")
+def favicon():
+    return send_file('favicon.png')
 
 @app.route("/", methods=['POST'])
 def linebot():
