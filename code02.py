@@ -21,10 +21,10 @@ def home():
 
 # 忽略對 favicon.ico 的請求（避免 favicon.ico 的 404 錯誤 ）
 @app.route("/favicon.ico")
-def favicon():
+def favicon_ico():
     return send_file('favicon.ico')
 @app.route("/favicon.png")
-def favicon():
+def favicon_png():
     return send_file('favicon.png')
 
 @app.route("/", methods=['POST'])
