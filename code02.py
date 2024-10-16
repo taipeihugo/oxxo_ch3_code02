@@ -14,6 +14,16 @@ import os
 
 app = Flask(__name__)
 
+# domain root
+@app.route('/')
+def home():
+    return 'Hello, World!'
+
+# 忽略對 favicon.ico 的請求（避免 favicon.ico 的 404 錯誤 ）
+@app.route("/favicon.ico")
+def favicon():
+    return url_for('static', filename='data:,')
+
 @app.route("/", methods=['POST'])
 def linebot():
      # 取得收到的訊息內容
