@@ -30,8 +30,7 @@ def favicon_png():
 
 @app.route("/", methods=['POST'])
 def linebot():
-     # 取得收到的訊息內容
-    body = request.get_data(as_text=True)
+    body = request.get_data(as_text=True) # 取得收到的訊息內容
     try:
         json_data = json.loads(body) # json 格式化訊息內容
         
