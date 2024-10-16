@@ -20,7 +20,7 @@ def home():
     return 'Hello, World!'
 
 # 忽略對 favicon.ico 的請求（避免 favicon.ico 的 404 錯誤 ）
-@app.route("/favicon.ico")
+@app.route("/robot.ico")
 def favicon():
     return url_for('static', filename='data:,')
 
