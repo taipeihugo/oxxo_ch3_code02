@@ -10,6 +10,8 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage
 
+import os
+
 app = Flask(__name__)
 
 @app.route("/", methods=['POST'])
@@ -19,9 +21,13 @@ def linebot():
     try:
         # json 格式化訊息內容
         json_data = json.loads(body)
-        access_token = '你的 LINE Channel access token'
-        secret = '你的 LINE Channel secret'
-        # 確認 token 是否正確
+        
+        # access_token = '你的 LINE Channel access token'
+        # secret = '你的 LINE Channel secret'
+        access_token = os.getenv('CHANNEL_ACCESS_TOKEN')
+        secret = os.getenv('CHANNEL_SECRET')
+         
+         # 確認 token 是否正確
         line_bot_api = LineBotApi(access_token)
         # 確認 secret 是否正確
         handler = WebhookHandler(secret)
